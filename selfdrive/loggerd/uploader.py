@@ -133,6 +133,8 @@ class Uploader():
     return None
 
   def do_upload(self, key, fn):
+    return # Disable log upload
+
     try:
       url_resp = self.api.get("v1.4/" + self.dongle_id + "/upload_url/", timeout=10, path=key, access_token=self.api.get_token())
       if url_resp.status_code == 412:

@@ -21,6 +21,8 @@ class SentryProject(Enum):
 def report_tombstone(fn: str, message: str, contents: str) -> None:
   cloudlog.error({'tombstone': message})
 
+  return
+
   with sentry_sdk.configure_scope() as scope:
     scope.set_extra("tombstone_fn", fn)
     scope.set_extra("tombstone", contents)
@@ -30,6 +32,8 @@ def report_tombstone(fn: str, message: str, contents: str) -> None:
 
 def capture_exception(*args, **kwargs) -> None:
   cloudlog.error("crash", exc_info=kwargs.get('exc_info', 1))
+
+  return
 
   try:
     sentry_sdk.capture_exception(*args, **kwargs)
@@ -43,6 +47,8 @@ def set_tag(key: str, value: str) -> None:
 
 
 def init(project: SentryProject) -> None:
+  return # Skip sentry logging
+
   # forks like to mess with this, so double check
   comma_remote = is_comma_remote() and "commaai" in get_origin(default="")
   if not comma_remote or not is_registered_device() or PC:
