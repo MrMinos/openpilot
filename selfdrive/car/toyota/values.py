@@ -2019,7 +2019,7 @@ FW_VERSIONS = {
     (Ecu.abs, 0x7B0, None): [  # a second ABS ECU
       b'\x01F15266203200\x00\x00\x00\x00',
       b'\x01F15266203500\x00\x00\x00\x00',
-      b'\x01F15266202000\x00\x00\x00\x00',
+      b'F152662020\x00\x00\x00\x00\x00\x00',
     ],
     (Ecu.eps, 0x7A1, None): [b'\x028965B6204100\x00\x00\x00\x008965B6203100\x00\x00\x00\x00',],
     (Ecu.fwdRadar, 0x750, 0xf): [
