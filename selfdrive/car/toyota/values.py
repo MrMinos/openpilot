@@ -69,7 +69,7 @@ class CAR:
   RAV4_TSS2_2022 = "TOYOTA RAV4 2022"
   RAV4H_TSS2 = "TOYOTA RAV4 HYBRID 2019"
   RAV4H_TSS2_2022 = "TOYOTA RAV4 HYBRID 2022"
-  MIRAI = "TOYOTA MIRAI 2021"  # TSS 2.5
+  MIRAI = "TOYOTA MIRAI 2019"  # TSS 2.5
   SIENNA = "TOYOTA SIENNA 2018"
 
   # Lexus
@@ -159,7 +159,7 @@ CAR_INFO: Dict[str, Union[ToyotaCarInfo, List[ToyotaCarInfo]]] = {
   CAR.RAV4_TSS2_2022: ToyotaCarInfo("Toyota RAV4 2022"),
   CAR.RAV4H_TSS2: ToyotaCarInfo("Toyota RAV4 Hybrid 2019-21"),
   CAR.RAV4H_TSS2_2022: ToyotaCarInfo("Toyota RAV4 Hybrid 2022", video_link="https://youtu.be/U0nH9cnrFB0"),
-  CAR.MIRAI: ToyotaCarInfo("Toyota Mirai 2021"),
+  CAR.MIRAI: ToyotaCarInfo("Toyota Mirai 2019"),
   CAR.SIENNA: ToyotaCarInfo("Toyota Sienna 2018-20", video_link="https://www.youtube.com/watch?v=q1UPOo4Sh68", min_enable_speed=MIN_ACC_SPEED),
 
   # Lexus
@@ -2019,10 +2019,17 @@ FW_VERSIONS = {
     (Ecu.abs, 0x7B0, None): [  # a second ABS ECU
       b'\x01F15266203200\x00\x00\x00\x00',
       b'\x01F15266203500\x00\x00\x00\x00',
+      b'\x01F15266202000\x00\x00\x00\x00',
     ],
     (Ecu.eps, 0x7A1, None): [b'\x028965B6204100\x00\x00\x00\x008965B6203100\x00\x00\x00\x00',],
-    (Ecu.fwdRadar, 0x750, 0xf): [b'\x018821F6201200\x00\x00\x00\x00',],
-    (Ecu.fwdCamera, 0x750, 0x6d): [b'\x028646F6201400\x00\x00\x00\x008646G5301200\x00\x00\x00\x00',],
+    (Ecu.fwdRadar, 0x750, 0xf): [
+      b'\x018821F6201200\x00\x00\x00\x00',
+      b'\x018821F3301200\x00\x00\x00\x00',
+    ],
+    (Ecu.fwdCamera, 0x750, 0x6d): [
+      b'\x028646F6201400\x00\x00\x00\x008646G5301200\x00\x00\x00\x00',
+      b'\x028646F6202100\x00\x00\x00\x008646G26011A0\x00\x00\x00\x00',
+    ],
   },
   CAR.ALPHARD_TSS2: {
     (Ecu.engine, 0x7e0, None): [
