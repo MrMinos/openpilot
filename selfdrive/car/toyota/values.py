@@ -2015,13 +2015,14 @@ FW_VERSIONS = {
     ],
   },
   CAR.MIRAI: {
-    (Ecu.abs, 0x7D1, None): [b'\x01898A36203000\x00\x00\x00\x00',],
+    # 2019 Mirai does not have certain features compared to the 2021 model
+    # (Ecu.abs, 0x7D1, None): [b'\x01898A36203000\x00\x00\x00\x00',],
     (Ecu.abs, 0x7B0, None): [  # a second ABS ECU
       b'\x01F15266203200\x00\x00\x00\x00',
       b'\x01F15266203500\x00\x00\x00\x00',
       b'F152662020\x00\x00\x00\x00\x00\x00',
     ],
-    (Ecu.eps, 0x7A1, None): [b'\x028965B6204100\x00\x00\x00\x008965B6203100\x00\x00\x00\x00',],
+    # (Ecu.eps, 0x7A1, None): [b'\x028965B6204100\x00\x00\x00\x008965B6203100\x00\x00\x00\x00',],
     (Ecu.fwdRadar, 0x750, 0xf): [
       b'\x018821F6201200\x00\x00\x00\x00',
       b'\x018821F3301200\x00\x00\x00\x00',
